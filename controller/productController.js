@@ -40,7 +40,7 @@ const retrieve = async (req,res)=>{
         const userId = req.query.userId;
         
         if(userId){
-            const data = await prisma.Shipping.findUnique({where : {userId : parseInt(userId)}});
+            const data = await prisma.Shipping.findMany({where : {userId : parseInt(userId)}});
             return res.status(200).json(data);
             
         }
