@@ -43,7 +43,7 @@ const retrieve = async (req,res)=>{
             return res.status(200).json(data);
         }
         else{
-            const data = await prisma.Shipping.findUnique({where : userId});
+            const data = await prisma.Shipping.findUnique({where : {userId}});
             return res.status(200).json(data);
         }
         
