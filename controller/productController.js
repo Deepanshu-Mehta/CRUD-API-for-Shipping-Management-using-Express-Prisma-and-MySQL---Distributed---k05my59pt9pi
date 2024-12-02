@@ -37,13 +37,13 @@ const cancelShipping = async (req,res)=>{
 const retrieve = async (req,res)=>{
 
     try{
-        const userId = req.query.userId;
+        const {userId} = req.query;
         if(!userId){
             const data = await prisma.Shipping.findMany();
             return res.status(200).json(data);
         }
         else{
-            const data = await prisma.Shipping.findUnique({where : {userId}});
+            const data = await prisma.Shipping.findUnique({where : userId});
             return res.status(200).json(data);
         }
         
