@@ -24,7 +24,7 @@ const cancelShipping = async (req,res)=>{
         if(!product){
             return res.status(400).json({})
         }
-        const cancelshipp = await prisma.Shipping.updata({
+        const cancelshipp = await prisma.Shipping.update({
             where : {id : shippingId},
             data : {status : "cancelled" }
         });
